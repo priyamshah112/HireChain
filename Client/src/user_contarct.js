@@ -1,4 +1,4 @@
-const abi=[
+const abi2=[
 	{
 		"constant": false,
 		"inputs": [
@@ -74,7 +74,7 @@ const abi=[
 		"type": "function"
 	}
 ];
-const address="0x4d1874a4d6b729a521ec040e27224804cf0ea239";
+const address2="0x4d1874a4d6b729a521ec040e27224804cf0ea239";
 
 
-module.exports={abi,address};
+module.exports={abi2,address2};

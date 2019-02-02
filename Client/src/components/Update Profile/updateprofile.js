@@ -4,8 +4,8 @@ import Header from '../Header/header';
 import "./updateprofile.css";
 import {Form, FormGroup,Col,FormControl,Button,Checkbox,ControlLabel,Grid, Row,} from 'react-bootstrap';
 import web3 from '../../web';
-import {abi,address} from '../../user_contarct';
-import {abi2,address2} from '../../main';
+import {abi2,address2} from '../../user_contarct';
+
 import ipfs from '../../ipfs';
 import { Redirect } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ class updateprofile extends Component {
   async componentDidMount(){
     console.log(web3.currentProvider.isMetaMask);    
     if(web3.currentProvider.isMetaMask === true){
-      contract = new web3.eth.Contract(abi, address);
+      contract = new web3.eth.Contract(abi2, address2);
       console.log(contract);
   }
 
