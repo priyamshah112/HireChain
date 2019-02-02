@@ -10,7 +10,7 @@ import ipfs from '../../ipfs';
 import { Redirect } from 'react-router-dom';
 
 let contract;
-class home extends Component {
+class updateprofile extends Component {
   state={
     isMetaMask:'',
     buffer:'' 
