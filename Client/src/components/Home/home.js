@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col,Button } from "react-bootstrap";
+import { Grid, Row, Col,Button, Glyphicon } from "react-bootstrap";
 import Header from "../Header/header";
 //import { Card, CardTitle, CardActions, CardText } from "react-mdl";
 import "./home.css";
@@ -29,14 +29,27 @@ class home extends Component {
       //   </Grid>
       // </div>
       // </div>
-      <div style={{ minHeight: "100%" }}>
+      <div style={{ minHeight: "100%", width:"120%" }}>
         <div class="headerclass">
           <Header />
+          <Grid style={{width:"100%"}} >
+                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                        <Col xs={4} xsOffset={4}>
+                        <br/>
+                        <p className="username">Dashboard</p>
+                        </Col>
+                        <Col xs={2} xsOffset={1} style={{background:"rgb(47, 53, 58)", height:"50px", left:"0"}}>
+                        <br/>  <p className="username"><Glyphicon glyph="user" />&nbsp;&nbsp;Hello User</p>
+                        </Col>
+                    </Row>
+                </Grid>
         </div>
         <div className="bodyclass">
+        
+
           <Grid>
-            <Row>
-              <Col lg={{ span: 4, offset: 6 }}>
+            <Row style={{left:"-10px"}}> 
+              <Col xs={12}>
                 <div className="cards">
                   <div className="card">
                   <Grid>

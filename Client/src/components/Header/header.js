@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Nav,Navbar, Glyphicon} from "react-bootstrap";
+import {Grid,Row,Col, Nav,Navbar, Glyphicon} from "react-bootstrap";
 
 // import {Grid, Row, Col} from 'react-bootstrap';
 
@@ -9,35 +9,38 @@ import "./header.css";
 class header extends Component {
   render() {
     return (
-            <div id="sidebar-menu" className="sideBarMenuContainer">
+        <body>
+            <div id="sidebar-menu" className="sideBarMenuContainer" style={{borderRight:"none"}}>
               <Navbar fluid className="sidebar">
                 <Navbar.Header>
-                  <Navbar.Brand>
-                    <a href="/">User Name</a>
+                  <Navbar.Brand><br/>
+                    <a href="/"style={{color:"#e9e9e9"}}>Hire Chain</a>
                   </Navbar.Brand>
                   <Navbar.Toggle />
                 </Navbar.Header>
-
+                
                 <Navbar.Collapse>
                   <Navbar.Text className="userMenu">
-                    <Navbar.Link href="#">
-                      <Glyphicon glyph="home" />
+                    <Navbar.Link href="#" >
                     </Navbar.Link>
                     <Navbar.Link href="#">
-                      <Glyphicon glyph="log-out" />
+                    <Glyphicon glyph="logout" />
                     </Navbar.Link>
                   </Navbar.Text>
-                  <Nav>
-                    
-                    <a href={'/'}>Dashboard</a><hr/>
-                    <a href={'addproject'}>Add Projects</a><hr/>
-                    <a href={'updateprofile'}>Update Details</a><hr/>
-                    <a href={'addprojectcompleted'}>My Project</a><hr/>
-                    <a href={'addprojectapplication'}>Application</a>
+                  <Nav><br/>
+                    <div style={{marginLeft:"20px", width:"100%"}}>
+                    <a href={'/'} ><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="dashboard" />&nbsp;&nbsp;&nbsp;Dashboard</span></a><br/><br/>
+                    <a href={'addproject'}><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="plus-sign" />&nbsp;&nbsp;&nbsp;Add Projects</span></a><br/><br/>
+                    <a href={'updateprofile'}><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="pencil" />&nbsp;&nbsp;&nbsp;Update Profile</span></a><br/><br/>
+                    <a href={'addprojectcompleted'}><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="briefcase" />&nbsp;&nbsp;&nbsp;My Project</span></a><br/><br/>
+                    <a href={'addprojectapplication'}><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="list-alt" />&nbsp;&nbsp;&nbsp;Application</span></a>
+                    </div>
                   </Nav>
                 </Navbar.Collapse>
               </Navbar>
             </div>
+                
+            </body>
     );
   }
 }
