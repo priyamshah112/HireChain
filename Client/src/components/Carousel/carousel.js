@@ -3,17 +3,17 @@ import {Carousel} from 'react-bootstrap';
 import Header from '../Header/header';
 
 class carousel extends Component {
-  constructor(){
-    super();
-    this.state={
-      customers:[]
-    }
-  }
-  componentDidMount(){
-    fetch('/app/customers')
-      .then(res=>res.json())
-      .then(customers=>this.setState({customers},()=>console.log('Customers fetched..',customers)));
-  }
+  // constructor(){
+  //   super();
+  //   this.state={
+  //     customers:[]
+  //   }
+  // }
+  // componentDidMount(){
+  //   fetch('/app/customers')
+  //     .then(res=>res.json())
+  //     .then(customers=>this.setState({customers},()=>console.log('Customers fetched..',customers)));
+  // }
 
     render() { 
         return ( 
@@ -50,10 +50,10 @@ class carousel extends Component {
             </div>
 
             <h2>Customers</h2>
-            <ul>
+            {/* <ul>
               {this.state.customers.map(customer=>
                 <li key={customer.id}>{customer.fname} {customer.lname}</li>)}
-            </ul>
+            </ul> */}
             </div>
          );
     }

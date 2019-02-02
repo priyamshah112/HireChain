@@ -1,0 +1,17 @@
+body{
+    height:100%;
+    width:100%;
+    left:0;
+    margin:0;
+
+}
+
+.bodyclass{
+    padding-left:10%;
+    height:100%;
+}
+
+.headerclass{
+    margin-left: 0;
+    padding-left:0;
+}
