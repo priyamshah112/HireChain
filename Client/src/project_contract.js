@@ -52,6 +52,20 @@ const abi=[
 	{
 		"constant": false,
 		"inputs": [],
+		"name": "lenC",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
 		"name": "lenE",
 		"outputs": [
 			{
@@ -225,6 +239,10 @@ const abi=[
 			{
 				"name": "pdescription",
 				"type": "string"
+			},
+			{
+				"name": "cost",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -301,7 +319,7 @@ const abi=[
 		"stateMutability": "view",
 		"type": "function"
 	}
-]
-const address="0xec0a485e0b0683c4c3da84737a479f78181fc31d";
+];
+const address="0x5717f7870eced99b7b0063a0da0db495a08be955";
 
 module.exports={abi,address};
