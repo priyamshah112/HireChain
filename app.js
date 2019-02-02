@@ -4,6 +4,7 @@ const bparser=require('body-parser');
 var User=require('./models').User;
 var Auction = require('./models').Auction;
 var IPFS = require('ipfs-http-client');
+// var Selection = require('./models').Selection;
 // db connect
 
 // const ipfs = new IPFS({host: "ipfs.infura.io", port: 5001, protocol: "https" });
@@ -71,6 +72,13 @@ app.post("/api/v1/project",(req,res)=>{
             console.log(err);
         }
     })   
+});
+
+app.get("/api/v1/auctions/:id",(req,res)=>{
+    User.findOne({pname:req.params.id}).then((data)=>{
+        res.json(data);
+    });
+    
 });
 
 app.post("/api/v1/auction",(req,res)=>{
