@@ -2,7 +2,103 @@ import React, { Component } from 'react';
 import {Form, FormGroup,Col,FormControl,Button,ControlLabel,Grid, Row,Glyphicon} from 'react-bootstrap';
 import Header from '../Header/header';
 import "./updateprofile.css";
+import {Form, FormGroup,Col,FormControl,Button,Checkbox,ControlLabel,Grid, Row,} from 'react-bootstrap';
+import web3 from '../../web';
+import {abi,address} from '../../user_contarct';
+import {abi2,address2} from '../../main';
+import ipfs from '../../ipfs';
+import { Redirect } from 'react-router-dom';
+
+let contract;
 class updateprofile extends Component {
+  state={
+    isMetaMask:'',
+    buffer:'' 
+
+  }
+
+  async componentDidMount(){
+    console.log(web3.currentProvider.isMetaMask);    
+    if(web3.currentProvider.isMetaMask === true){
+      contract = new web3.eth.Contract(abi, address);
+      console.log(contract);
+  }
+
+
+  }
+  captureFile=(event)=>{
+    console.log("event");
+    event.stopPropagation();
+    event.preventDefault();
+    const file=event.target.files[0];
+    let reader=new window.FileReader();
+    reader.readAsArrayBuffer(file);
+    reader.onloadend = () => {
+        this.setState({ buffer: Buffer(reader.result) })
+        console.log('buffer', this.state.buffer)
+    }
+    
+  }
+
+
+  addUser= async(event)=>{
+    event.preventDefault();
+    const data= new FormData(event.target);
+    const name=data.get("name");
+    const email=data.get("email");
+    const number=data.get("number");
+    const address=data.get("address");
+    const accconts=await web3.eth.getAccounts();
+    const account=accconts[0];
+    // console.log(account);
+    const ipfsresponse=await ipfs.add(this.state.buffer);
+    console.log(ipfsresponse[0].hash);
+    const ipfsHash=ipfsresponse[0].hash;
+
+
+    const response= await fetch("/api/v1/add",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        name:name,
+        email:email,
+        number:number,
+        address:address,
+        publicKey:account,
+        link:'https://ipfs.io/ipfs/'+ipfsHash
+        
+       }),
+    });
+    
+
+    console.log(response);
+    // if(response.status==200){
+    //     console.log("done");
+    // }else{
+    //   console.log(response);
+    // }
+    const user=await contract.methods.countUsers().call();
+    console.log(user);
+
+    // contract.methods.AddUser(name,ipfsHash).send({
+    //   "from":account
+    // }).then((receipt)=>{ 
+    //   console.log(receipt);
+    // });
+  }
+  retrieveuser=async (event)=>{
+    const accounts=await web3.eth.getAccounts();
+    const account=accounts[0];
+    const response=await fetch(`/api/v1/user/${account}`);
+    var data=await (response.json());
+    console.log(data.publicKey)
+    var count=await contract.methods.countUsers().call();
+    console.log(count);
+  }
+
+  
     render() { 
         return ( 
             
@@ -46,11 +142,11 @@ class updateprofile extends Component {
             </div>
 
             <div className="bodyclass">
-
+            
               <Grid>
                 <Row>
                   <Col lg={{span:4, offset:6}}>
-                    <h1></h1>
+                    <button onClick={this.retrieveuser} name="btn">Submit</button>
                     <form onSubmit={this.addUser}>
                     <Form horizontal>
                       <FormGroup controlId="formHorizontalEmail">
@@ -58,7 +154,7 @@ class updateprofile extends Component {
                               Name
                         </Col>
                         <Col sm={10}>
-                          <FormControl type="text" name="name" placeholder="Full Name" />
+                          <FormControl type="text" name="name" placeholder="Email" />
                         </Col>
                       </FormGroup>
                       <FormGroup controlId="formHorizontalEmail">
@@ -74,7 +170,7 @@ class updateprofile extends Component {
                           Number
                         </Col>
                         <Col sm={10}>
-                          <FormControl type="tel" name="number" placeholder="Contact Number" />
+                          <FormControl type="text" name="number" placeholder="Email" />
                         </Col>
                       </FormGroup>
 
@@ -97,7 +193,7 @@ class updateprofile extends Component {
 
                       <FormGroup>
                         <Col xs={1} xsOffset={2}>
-                          <Button type="submit" name="submit" className="btn btn-info">Submit</Button>
+                          <Button type="submit" name="submit" className="btn btn-info">Sign In</Button>
                         </Col>
                       </FormGroup>
                     </Form>

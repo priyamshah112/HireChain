@@ -1,0 +1,30 @@
+{
+  "name": "hirechain",
+  "version": "1.0.0",
+  "description": "Dotslash Hackathon Surat",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyamshah112/HireChain.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyamshah112/HireChain/issues"
+  },
+  "homepage": "https://github.com/priyamshah112/HireChain#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "ipfs-http-client": "^29.1.0",
+    "mongoose": "^5.4.8",
+    "nodemon": "^1.18.9"
+  }
+}
