@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col, } from 'react-bootstrap';
 import Header from '../Header/header';
+import "./myprojapplication.css";
 class home extends Component {
     render() { 
         return ( 
@@ -28,16 +29,19 @@ class home extends Component {
             //   </Grid>
             // </div>
             // </div>
-            <div>
-              
-              <Header/>
+            <div style={{minHeight:'100%'}}>
+            <div class="headerclass">
+            <Header/>
+            </div>
+            <div className="bodyclass">
               <Grid>
                 <Row>
-                  <Col md={{offset:10}}>
-                    <h1>Hii</h1>
+                  <Col lg={{span:4, offset:6}}>
+                    <a href={'carousel'}><h1>Hii</h1></a>
                   </Col>
                 </Row>
               </Grid>
+            </div>
             </div>
          );
     }
