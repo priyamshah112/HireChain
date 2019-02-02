@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, Row, Col, } from 'react-bootstrap';
+import {Grid, Row, Col, Card, Button } from 'react-bootstrap';
 import Header from '../Header/header';
 import "./home.css";
 class home extends Component {
@@ -37,7 +37,17 @@ class home extends Component {
               <Grid>
                 <Row>
                   <Col lg={{span:4, offset:6}}>
-                    <h1>Hii</h1>
+                  <Card className="text-center">
+                    <Card.Header>Featured</Card.Header>
+                    <Card.Body>
+                      <Card.Title>Special title treatment</Card.Title>
+                      <Card.Text>
+                        With supporting text below as a natural lead-in to additional content.
+                      </Card.Text>
+                      <Button variant="primary">Go somewhere</Button>
+                    </Card.Body>
+                    <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                  </Card>                    
                   </Col>
                 </Row>
               </Grid>
