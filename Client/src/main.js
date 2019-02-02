@@ -1,4 +1,5 @@
 const abi2=
+
 [
 	{
 		"constant": false,
@@ -254,5 +255,5 @@ const abi2=
 	}
 ];
 
-const address2="0x9137d10967241d701c97ee3fbbe8b313c517cc37";
+const address2="0xbe21aa770fcf3ea8fffb04755dfcfdc447543292";
 module.exports={abi2,address2}
