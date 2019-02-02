@@ -38,11 +38,11 @@ app.post("/api/v1/add",(req,res)=>{
         publicKey:req.body.publicKey
     
     });
-    // user.save((err)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
+    user.save((err)=>{
+        if(err){
+            console.log(err);
+        }
+    });
 
 
     res.json({reply:"success"});
