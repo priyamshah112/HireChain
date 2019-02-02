@@ -94,7 +94,9 @@ class updateprofile extends Component {
     const response=await fetch(`/api/v1/user/${account}`);
     var data=await (response.json());
     console.log(data.publicKey)
-    var count=await contract.methods.countUsers().call();
+
+
+    var count=await contract.methods.Users(0).call();
     console.log(count);
   }
 
@@ -135,7 +137,7 @@ class updateprofile extends Component {
               <Grid>
                 <Row>
                   <Col lg={{span:4, offset:6}}>
-                    <h1></h1>
+                    <button onClick={this.retrieveuser} name="btn">Submit</button>
                     <form onSubmit={this.addUser}>
                     <Form horizontal>
                       <FormGroup controlId="formHorizontalEmail">
