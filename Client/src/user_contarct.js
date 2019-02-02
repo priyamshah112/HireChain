@@ -74,7 +74,7 @@ const abi=[
 		"type": "function"
 	}
 ];
-const address="0x410a1a76505aab3433964371be88509cd6fb04c7";
+const address="0x4d1874a4d6b729a521ec040e27224804cf0ea239";
 
 
 module.exports={abi,address};

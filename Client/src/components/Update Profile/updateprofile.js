@@ -79,20 +79,23 @@ class home extends Component {
     // }else{
     //   console.log(response);
     // }
-    // const user=await contract.methods.countUsers().call();
-    // console.log(user);
-    contract.methods.AddUser(name,ipfsHash).send({
-      "from":account
-    }).then((receipt)=>{ 
-      console.log(receipt);
-    });
+    const user=await contract.methods.countUsers().call();
+    console.log(user);
 
-  
-    
-
-
-    
-
+    // contract.methods.AddUser(name,ipfsHash).send({
+    //   "from":account
+    // }).then((receipt)=>{ 
+    //   console.log(receipt);
+    // });
+  }
+  retrieveuser=async (event)=>{
+    const accounts=await web3.eth.getAccounts();
+    const account=accounts[0];
+    const response=await fetch(`/api/v1/user/${account}`);
+    var data=await (response.json());
+    console.log(data.publicKey)
+    var count=await contract.methods.countUsers().call();
+    console.log(count);
   }
 
   
@@ -128,11 +131,12 @@ class home extends Component {
             </div>
 
             <div className="bodyclass">
-
+            
               <Grid>
                 <Row>
                   <Col lg={{span:4, offset:6}}>
                     <a href={'carousel'}><h1>Hii</h1></a>
+                    <button onClick={this.retrieveuser} name="button">SUbmit</button>
                     <form onSubmit={this.addUser}>
                     <Form horizontal>
                       <FormGroup controlId="formHorizontalEmail">
