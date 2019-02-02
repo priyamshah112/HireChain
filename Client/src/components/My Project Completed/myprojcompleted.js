@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col,Button } from "react-bootstrap";
+import { Grid, Row, Col,Button,Glyphicon } from "react-bootstrap";
 import Header from "../Header/header";
 import "./myprojcompleted.css";
 class myprojcompleted extends Component {
@@ -28,10 +28,21 @@ class myprojcompleted extends Component {
       //   </Grid>
       // </div>
       // </div>
-      <div style={{ minHeight: "100%" }}>
-        <div class="headerclass">
-          <Header />
-        </div>
+      <div style={{minHeight:'100%', width:"103%" }}>
+            <div class="headerclass">
+            <Header/>
+            <Grid style={{width:"100%"}} >
+                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                        <Col xs={4} xsOffset={6}>
+                        <br/>
+                        <p className="username">Your Projects</p>
+                        </Col>
+                        <Col xs={2} style={{background:"rgb(47, 53, 58)", height:"50px", left:"0"}}>
+                        <br/>  <p className="username"><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
+                        </Col>
+                    </Row>
+                </Grid>
+            </div>
         <div className="bodyclass">
           <Grid>
             <Row>

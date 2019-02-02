@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col,Button } from "react-bootstrap";
+import { Grid, Row, Col,Button,Glyphicon } from "react-bootstrap";
 import Header from "../Header/header";
 import "./myprojapplication.css";
 class myprojapplication extends Component {
@@ -28,9 +28,20 @@ class myprojapplication extends Component {
       //   </Grid>
       // </div>
       // </div>
-      <div style={{ minHeight: "100%" }}>
+      <div style={{ minHeight: "100%", width:"103%" }}>
         <div class="headerclass">
           <Header />
+          <Grid style={{width:"100%"}} >
+                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                        <Col xs={4} xsOffset={6}>
+                        <br/>
+                        <p className="pagename">Applications</p>
+                        </Col> 
+                        <Col xs={2} style={{background:"#e9e9e9", height:"60px", left:"0"}}>
+                         <br/><p className="username" style={{color:"rgba(0, 0, 0)",fontWeight:"600"}}><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
+                        </Col>
+                    </Row>
+                </Grid>
         </div>
         <div className="bodyclass">
           <Grid>

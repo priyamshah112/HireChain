@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Grid, Row, Col,Button, Glyphicon } from "react-bootstrap";
+import { Grid, Row, Col,Button, Glyphicon,FormGroup,FormControl,ControlLabel,Form } from "react-bootstrap";
 import Header from "../Header/header";
 //import { Card, CardTitle, CardActions, CardText } from "react-mdl";
 import "./home.css";
@@ -29,8 +29,8 @@ class home extends Component {
       //   </Grid>
       // </div>
       // </div>
-      <div style={{ minHeight: "100%", width:"103%" }}>
-        <div class="headerclass">
+      <div style={{ minHeight: "100%", width:"103%"}}>
+        <div class="headerclass" >
           <Header />
           <Grid style={{width:"100%"}} >
                     <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
@@ -45,8 +45,6 @@ class home extends Component {
                 </Grid>
         </div>
         <div className="bodyclass">
-        
-
           <Grid>
             <Row style={{left:"-10px"}}> 
               <Col xs={12}>
@@ -54,8 +52,17 @@ class home extends Component {
                   <div className="card">
                   <Grid>
                   <Row className="cardHeader">
-                    <Col class="Headershift">
+                    <Col class="Headershift" xs={10}>
                       <h5>&nbsp;&nbsp; Project Name</h5>
+                    </Col>
+                    <Col xs={2} >
+                      <Form>
+                      <FormGroup controlId="formHorizontalText">
+                        <Col sm={10}>
+                          <FormControl type="text" id="bid" name="bid" placeholder="Bid" />
+                        </Col>
+                      </FormGroup>
+                      </Form>   
                     </Col>
                   </Row>
                   <Row className="cardDesc">

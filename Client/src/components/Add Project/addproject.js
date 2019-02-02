@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/header";
 import "./addproject.css";
-import {Form, FormGroup,Col,FormControl,Button,Checkbox,ControlLabel,Grid, Row,} from 'react-bootstrap';
+import {Glyphicon,Form, FormGroup,Col,FormControl,Button,Checkbox,ControlLabel,Grid, Row,} from 'react-bootstrap';
 import web3 from '../../web';
 import {abi,address} from '../../project_contract';
 import { Redirect } from 'react-router-dom';
@@ -53,17 +53,27 @@ class addproject extends Component {
     
       render() { 
           return ( 
-              <div style={{minHeight:'100%'}}>
-              <div class="headerclass">
-              <Header/>
-              </div>
+            <div style={{ minHeight: "100%", width:"103%" }}>
+            <div class="headerclass">
+              <Header />
+              <Grid style={{width:"100%"}} >
+                        <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                            <Col xs={4} xsOffset={6}>
+                            <br/>
+                            <p className="pagename">Add Project</p>
+                            </Col> 
+                            <Col xs={2} style={{background:"#e9e9e9", height:"60px", left:"0"}}>
+                             <br/><p className="username" style={{color:"rgba(0, 0, 0)",fontWeight:"600"}}><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
+                            </Col>
+                        </Row>
+                    </Grid>
+            </div>
   
               <div className="bodyclass">
   
                 <Grid>
                   <Row>
                     <Col lg={{span:4, offset:6}}>
-                      <a href={'carousel'}><h1>Hii</h1></a>
                       <form onSubmit={this.addProject}>
                       <Form horizontal>
                         <FormGroup controlId="formHorizontalEmail">
@@ -86,15 +96,15 @@ class addproject extends Component {
                           <Col componentClass={ControlLabel} sm={2}>
                             Project Cost
                           </Col>
-                          <Col sm={10}>
+                          <Col sm={2}>
                             <FormControl type="text" name="pcost" placeholder="1.0 Ether" />
                           </Col>
                         </FormGroup>
                         <FormGroup>
-                          <Col smOffset={2} sm={10}>
-                            <Button type="submit" name="submit" >Add Project</Button>
-                          </Col>
-                        </FormGroup>
+                        <Col xs={1} xsOffset={2}>
+                          <Button type="submit" name="submit" className="btn btn-info">Sign In</Button>
+                        </Col>
+                      </FormGroup>
                       </Form>
                       </form>
                     </Col>

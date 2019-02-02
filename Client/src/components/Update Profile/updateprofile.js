@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Form, FormGroup,Col,FormControl,Button,ControlLabel,Grid, Row,Glyphicon} from 'react-bootstrap';
 import Header from '../Header/header';
 import "./updateprofile.css";
-import {Form, FormGroup,Col,FormControl,Button,Checkbox,ControlLabel,Grid, Row,} from 'react-bootstrap';
 import web3 from '../../web';
 import {abi,address} from '../../user_contarct';
 import {abi2,address2} from '../../main';

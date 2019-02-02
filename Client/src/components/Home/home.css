@@ -7,7 +7,10 @@ body{
     width:100%;
     left:0;
     margin:0;
-
+    /* background:url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;  */
+    
 }
 
 .bodyclass{
@@ -30,6 +33,8 @@ body{
     box-shadow: 0 0px 16px 0 rgba(0, 0, 0, 0.5);
     margin: 25px auto;
     margin-right: 10px;
+    z-index: auto;
+    background-color: #fff;
   }
   
   .pagename{
@@ -96,3 +101,28 @@ body{
       color:black;
   }
   
+  .parallax1{
+    background:url("../img/background.jpg");
+    min-height:100%;
+    width: 100%;
+}
+
+.parallax1{
+    position: relative;
+    opacity:0.7;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+
+@media(max-width:768px){
+    .heading{
+        font-size:250%;
+    }
+    .heading-sm{
+        font-size:180%;
+    }
+}
