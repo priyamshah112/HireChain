@@ -94,7 +94,9 @@ class updateprofile extends Component {
     const response=await fetch(`/api/v1/user/${account}`);
     var data=await (response.json());
     console.log(data.publicKey)
-    var count=await contract.methods.countUsers().call();
+
+
+    var count=await contract.methods.Users(0).call();
     console.log(count);
   }
 
