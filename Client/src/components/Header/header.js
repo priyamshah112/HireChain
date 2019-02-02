@@ -32,7 +32,7 @@ class header extends Component {
                     <a href={'/'}>Dashboard</a><hr/>
                     <a href={'addproject'}>Add Projects</a><hr/>
                     <a href={'updateprofile'}>Update Details</a><hr/>
-                    <a href={'addprojectcompleted'}>Completed Project</a><hr/>
+                    <a href={'addprojectcompleted'}>My Project</a><hr/>
                     <a href={'addprojectapplication'}>Application</a>
                   </Nav>
                 </Navbar.Collapse>

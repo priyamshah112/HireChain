@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row, Col, } from 'react-bootstrap';
 import Header from '../Header/header';
 import "./updateprofile.css";
-class home extends Component {
+class updateprofile extends Component {
     render() { 
         return ( 
             
@@ -47,4 +47,4 @@ class home extends Component {
     }
 }
  
-export default home;
+export default updateprofile;

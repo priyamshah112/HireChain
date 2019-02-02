@@ -7,12 +7,10 @@ import {
   Col,
   FormControl,
   Button,
-  Checkbox,
   ControlLabel,
-  InputGroup
 } from "react-bootstrap";
 
-class home extends Component {
+class addproject extends Component {
   render() {
     return (
       <div style={{ minHeight: "100%" }}>
@@ -60,4 +58,4 @@ class home extends Component {
   }
 }
 
-export default home;
+export default addproject;

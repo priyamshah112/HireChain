@@ -15,3 +15,58 @@ body{
     margin-left: 0;
     padding-left:0;
 }
+
+.btn{
+    width:200%;
+    height:40px;
+}
+.cards {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0px 16px 0 rgba(0, 0, 0, 0.5);
+    margin: 25px auto;
+    margin-right: 10px;
+  }
+  
+  .card {
+    color: #ffffff;
+    width:100%;
+    transition: 0.5s;
+    margin: 12.5px auto;
+   
+    width: 500px;
+  }
+  
+  .front {
+    display: flex;
+    width:100%;
+    margin-bottom: 12.5px;
+  }
+  .cards:hover{
+
+    transition: 0.3s;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 1.0);
+  }
+  
+  .side {
+    background-color: #01aef2;
+    margin: 70px auto;
+  }
+  
+  .cardHeader{
+      color:black;
+  }
+
+ .cardDesc{
+
+     padding-top: 10px;
+ }
+  p{
+      color:black;
+  }
+
+  h5{
+    margin-left: 10px;
+      color:black;
+  }
+  

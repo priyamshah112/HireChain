@@ -8,7 +8,6 @@ import MyProApp from '././components/My Project Application/myprojapplication';
 import MyProComp from '././components/My Project Completed/myprojcompleted';
 import UpdateProfile from '././components/Update Profile/updateprofile';
 import NotFound from '././components/Not Found/notfound';
-import header from '././components/Header/header'
 
 class App extends Component {
   render() {
