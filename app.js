@@ -2,6 +2,7 @@ const express=require('express');
 const mongoose=require('mongoose');
 const bparser=require('body-parser');
 var User=require('./models').User;
+var Auction = require('./models').Auction;
 var IPFS = require('ipfs-http-client');
 // db connect
 
@@ -57,6 +58,43 @@ app.get("/api/v1/user/:id",(req,res)=>{
     
 });
 
+app.post("/api/v1/project",(req,res)=>{
+    var projectname=req.body.pname;
+    var auction=new Auction({
+            
+            project_name:req.body.pname,
+            auction:[]
+            
+      });
+    auction.save((err)=>{
+        if(err){
+            console.log(err);
+        }
+    })   
+});
+
+app.post("/api/v1/auction",(req,res)=>{
+    console.log(req.body);
+    var project_name=req.body.pname;
+    var user_addr=req.body.useraddr;
+    var bid=req.body.bid;
+    Auction.findByIdAndUpdate({project_name:pname},{$push:{auction:{user_addr:user_addr,user_bid:bid}}}).then((data)=>{
+            console.log(data);
+    });
+    // user.save((err)=>{
+    //     if(err){
+    //         console.log(err);
+    //     }
+    // });
+
+
+    res.json({reply:"success"});
+
+
+
+});
+
 app.listen(5000,()=>{
     console.log("listening to port 5000");
 })
+
