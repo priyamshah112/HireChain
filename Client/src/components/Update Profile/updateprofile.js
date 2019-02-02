@@ -135,7 +135,7 @@ class updateprofile extends Component {
               <Grid>
                 <Row>
                   <Col lg={{span:4, offset:6}}>
-                    <h1></h1>
+                    <button onClick={this.retrieveuser} name="btn">Submit</button>
                     <form onSubmit={this.addUser}>
                     <Form horizontal>
                       <FormGroup controlId="formHorizontalEmail">
