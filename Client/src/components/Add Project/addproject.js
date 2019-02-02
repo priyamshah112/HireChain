@@ -19,6 +19,7 @@ class addproject extends Component {
     if (typeof window.web3 !== 'undefined') {
     console.log('web3 is enabled');
     if (web3.currentProvider.isMetaMask === true) {
+      contract = new web3.eth.Contract(abi, address);
     await this.setState({isMetaMask: true});
     console.log('MetaMask is active');
     } else {
@@ -33,23 +34,36 @@ class addproject extends Component {
     
     }
     addProject= async(event)=>{
-      contract = new web3.eth.Contract(abi, address);
+     
       console.log(contract);
       event.preventDefault();
       const data= new FormData(event.target);
       const pname=data.get("pname");
       const pdescription=data.get("pdescription");
       const pcost=data.get("pcost");
+
       const accounts = await web3.eth.getAccounts();
-      await(contract.methods.AddProject(pcost,pname,pdescription).send({
+    
+      console.log(web3.utils.toWei(pcost));
+      var receipt=await(contract.methods.AddProject(pname,pdescription).send({
           "from":accounts[0],
+          "value":web3.utils.toWei(pcost)
+
       })
       );
+
+
+      // console.log(receipt);
       
       console.log(pname + pdescription + pcost);
     }
 
+    projecttest=async(event)=>{
 
+      const accounts = await web3.eth.getAccounts();
+      const response=await contract.methods.lenP().call();
+      console.log(response);
+    }
     
       render() { 
           return ( 

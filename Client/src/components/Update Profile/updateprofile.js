@@ -3,8 +3,8 @@ import {Form, FormGroup,Col,FormControl,Button,ControlLabel,Grid, Row,Glyphicon}
 import Header from '../Header/header';
 import "./updateprofile.css";
 import web3 from '../../web';
-import {abi,address} from '../../user_contarct';
-import {abi2,address2} from '../../main';
+import {abi2,address2} from '../../user_contarct';
+
 import ipfs from '../../ipfs';
 import { Redirect } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ class updateprofile extends Component {
   async componentDidMount(){
     console.log(web3.currentProvider.isMetaMask);    
     if(web3.currentProvider.isMetaMask === true){
-      contract = new web3.eth.Contract(abi, address);
+      contract = new web3.eth.Contract(abi2, address2);
       console.log(contract);
   }
 
@@ -93,7 +93,9 @@ class updateprofile extends Component {
     const response=await fetch(`/api/v1/user/${account}`);
     var data=await (response.json());
     console.log(data.publicKey)
-    var count=await contract.methods.countUsers().call();
+
+
+    var count=await contract.methods.Users(0).call();
     console.log(count);
   }
 
