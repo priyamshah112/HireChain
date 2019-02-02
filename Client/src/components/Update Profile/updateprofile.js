@@ -18,12 +18,11 @@ class home extends Component {
   }
 
   async componentDidMount(){
-  if(web3.currentProvider.host==='metamask'){
-    contract = new web3.eth.Contract(abi, address);
-    console.log(contract);
+    console.log(web3.currentProvider.isMetaMask);    
+    if(web3.currentProvider.isMetaMask === true){
+      contract = new web3.eth.Contract(abi, address);
+      console.log(contract);
   }
-  // const account=await web3.eth.getAccounts();
-  // console.log(account[0]);
 
 
   }
@@ -72,18 +71,26 @@ class home extends Component {
         
        }),
     });
-    console.log(response);
-    if(response.status==200){
-      return <Redirect to="/"/> 
-    }else{
-      console.log(response);
-    }
     
+
+    console.log(response);
+    // if(response.status==200){
+    //     console.log("done");
+    // }else{
+    //   console.log(response);
+    // }
+    // const user=await contract.methods.countUsers().call();
+    // console.log(user);
+    contract.methods.AddUser(name,ipfsHash).send({
+      "from":account
+    }).then((receipt)=>{ 
+      console.log(receipt);
+    });
+
   
     
 
 
-    // const accounts=await web3.eth.getAccounts();
     
 
   }

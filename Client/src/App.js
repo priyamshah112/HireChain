@@ -24,7 +24,8 @@ class App extends Component {
     if (typeof window.web3 !== 'undefined') {
       console.log('web3 is enabled');
       // const account=await web3.eth.getAccounts();
-      if (web3.currentProvider.host === 'metamask') {
+
+      if (web3.currentProvider.isMetaMask === true) {
           await this.setState({isMetaMask: true});
           console.log('MetaMask is active');
       } else {
