@@ -132,7 +132,7 @@ class home extends Component {
               <Grid>
                 <Row>
                   <Col lg={{span:4, offset:6}}>
-                    <a href={'carousel'}><h1>Hii</h1></a>
+                    <h1></h1>
                     <form onSubmit={this.addUser}>
                     <Form horizontal>
                       <FormGroup controlId="formHorizontalEmail">
@@ -165,7 +165,7 @@ class home extends Component {
                           Address
                         </Col>
                         <Col sm={10}>
-                          <FormControl type="text" number="address" placeholder="Email" />
+                          <FormControl type="text" number="address" placeholder="Address" />
                         </Col>
                       </FormGroup>
                       <FormGroup controlId="formHorizontalEmail">
@@ -173,22 +173,13 @@ class home extends Component {
                           Resume
                         </Col>
                         <Col sm={10}>
-                          <FormControl type="file" name="file" onChange={this.captureFile} placeholder="Email" />
-                        </Col>
-                      </FormGroup>
-
-                      
-
-
-                      <FormGroup>
-                        <Col smOffset={2} sm={10}>
-                          <Checkbox>Remember me</Checkbox>
+                          <FormControl type="file" name="file" onChange={this.captureFile}  />
                         </Col>
                       </FormGroup>
 
                       <FormGroup>
-                        <Col smOffset={2} sm={10}>
-                          <Button type="submit" name="submit" >Sign in</Button>
+                        <Col xs={1} xsOffset={2}>
+                          <Button type="submit" name="submit" className="btn btn-info">Sign In</Button>
                         </Col>
                       </FormGroup>
                     </Form>
@@ -202,4 +193,4 @@ class home extends Component {
     }
 }
  
-export default home;
+export default updateprofile;
