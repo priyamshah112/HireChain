@@ -24,25 +24,26 @@ app.use(bparser.urlencoded({extended:true}));
 app.get("/",(req,res)=>{
     console.log("wroking");
 });
-app.get("/api/v1/add",(req,res)=>{
+app.post("/api/v1/add",(req,res)=>{
     console.log(req.body);
 
     var user=new User({
         name:req.body.name,
         address:req.body.address,
         link:req.body.link,
-        extra:req.body.extra,
+        
         email:req.body.email,
         number:req.body.number,
-        username:req.body.username,
+    
         publicKey:req.body.publicKey
     
     });
-    user.save((err)=>{
-        if(err){
-            console.log(err);
-        }
-    });
+    // user.save((err)=>{
+    //     if(err){
+    //         console.log(err);
+    //     }
+    // });
+
 
     res.json({reply:"success"});
 

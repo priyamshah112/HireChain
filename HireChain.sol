@@ -3,7 +3,7 @@ pragma solidity ^0.4.0;
 contract User{
     //Array of Users
     address[] public Users;
-    //user details
+    //user
     struct detail{
         string name;
         string ipfshash;
@@ -28,17 +28,19 @@ contract Consignment is User{
     address public owner;
     address public employee;
     uint public status=0;
+    uint public finalbid=0;
     
     struct Project{
         uint cost;
         string pname;
-        uint finalbid;
         string pdescription;
         
         //string[] skills;
     }
     
-    mapping ( address => Project ) public ProjectMap;
+    mapping ( address => Project[] ) public ProjectMap;
+    
+    mapping ( address => string ) public ProjectEmployeeMap;
     
     function Consignment(){
         owner = msg.sender;
@@ -51,15 +53,18 @@ contract Consignment is User{
         status=_newstatus;
     }
     
-    function AddProject(uint _cost, string _pname, uint _finalbid, string _pdescription) public payable{
-        require(_cost ==  msg.value);
+    function AddProject(uint _cost, string _pname, string _pdescription) public payable{
         
-        ProjectMap[msg.sender]=Project(_cost,_pname,_finalbid,_pdescription);
+        ProjectMap[msg.sender].push(Project(_cost,_pname,_pdescription));
     }
     
     function withdraw(address _user) private {
         
         _user.transfer(msg.value);
+    }
+    
+    function updateEmployeeStatus(string _pname,address _employee) public {
+        ProjectEmployeeMap[_employee] = _pname;
     }
 }
 
@@ -73,5 +78,3 @@ contract Main is Consignment{
         NumProj++;
     }
 }
-
-
