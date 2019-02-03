@@ -4,4 +4,4 @@
 
 <h1 align="center">HireChain</h1>
 
-<h4>An open platform for job openings and acceptance in various tech and non-texh fields. (Freelancing) [DotSlash 2.0]</h4>
+<h4>An open platform for job openings and acceptance in various tech and non-tech fields. (Freelancing)</h4>
