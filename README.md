@@ -54,3 +54,8 @@
       # Run client on the second terminal
       $ npm start
 ```
+
+### Author
+Priyam Shah - [priyamshah112](https://github.com/priyamshah112)
+
+See also the list of [contributors](https://github.com/priyamshah112/HireChain/pulse) who participated in this project.
