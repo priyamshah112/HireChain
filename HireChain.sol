@@ -1,3 +1,4 @@
+
 pragma solidity ^0.4.0;
 
 contract User{
@@ -36,9 +37,17 @@ contract Consignment is User{
         
         string pname;
         string pdescription;
-        
+        uint cost;
         //string[] skills;
     }
+    
+    struct Accept{
+        
+        address usr;
+        uint finalbid;
+    }    
+    
+    mapping  ( address => Accept ) public AcceptMap;
     
     mapping ( address => Project[] ) public ProjectMap;
     
@@ -57,7 +66,7 @@ contract Consignment is User{
     
     function AddProject( string _pname, string _pdescription) public payable{
         
-        ProjectMap[msg.sender].push(Project(_pname,_pdescription));
+        ProjectMap[msg.sender].push(Project(_pname,_pdescription,msg.value));
         UserProjectLength++;
     }
     
@@ -69,6 +78,18 @@ contract Consignment is User{
     function updateEmployeeStatus(string _pname,address _employee) public {
         ProjectEmployeeMap[_employee] = _pname;
         EmployeeProjectLength++;
+    }
+    function lenP() public returns(uint){
+        return UserProjectLength;
+    }
+    function lenE() public returns(uint){
+        return EmployeeProjectLength;
+    }
+    function lenC() public returns(uint){
+        return ProjectMap[msg.sender].length;
+    }
+    function acceptMap(address _usr,uint _finalbid) public{
+        AcceptMap[msg.sender] = Accept(_usr,_finalbid);
     }
 }
 
@@ -82,5 +103,3 @@ contract Main is Consignment{
         NumProj++;
     }
 }
-
-
