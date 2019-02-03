@@ -3,7 +3,7 @@ import { Grid, Row, Col,Button, Glyphicon,FormGroup,FormControl,ControlLabel,For
 import Header from "../Header/header";
 import {abi,address} from "../../project_contract";
 import {abi2,address2} from "../../user_contarct";
-
+import { Redirect } from "react-router-dom";
 //import { Card, CardTitle, CardActions, CardText } from "react-mdl";
 import "./home.css";
 import web3 from "../../web";
@@ -58,27 +58,28 @@ class home extends Component {
   }
 
   Bid=async(event)=>{
-    event.preventDefault();
+    // event.preventDefault();
     const data= new FormData(event.target);
     const bid=data.get("bid");
     const pname=data.get("pname");
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
     console.log("bid:",bid,"pname",pname);
-    const response= await fetch("/api/v1/auction",{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ 
-        pname:pname,
-        useraddr:account,
-        bid:bid
-       }),
-    });
+    // const response= await fetch("/api/v1/auction",{
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ 
+    //     pname:pname,
+    //     useraddr:account,
+    //     bid:bid
+    //    }),
+    // });
     
 
-    console.log(response);
+    // console.log(response);
+    return < Redirect to='/addprojectapplication' />
   }
 
   render() {

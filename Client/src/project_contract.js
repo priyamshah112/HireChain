@@ -3,6 +3,24 @@ const abi=[
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_usr",
+				"type": "address"
+			},
+			{
+				"name": "_finalbid",
+				"type": "uint256"
+			}
+		],
+		"name": "acceptMap",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
 				"name": "_employee",
 				"type": "address"
 			}
@@ -128,6 +146,29 @@ const abi=[
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "AcceptMap",
+		"outputs": [
+			{
+				"name": "usr",
+				"type": "address"
+			},
+			{
+				"name": "finalbid",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	},
 	{
 		"constant": true,
@@ -320,6 +361,6 @@ const abi=[
 		"type": "function"
 	}
 ];
-const address="0x5717f7870eced99b7b0063a0da0db495a08be955";
+const address="0x2af9a3cf0c7de5be7772772198375ddb2615d8ce";
 
 module.exports={abi,address};

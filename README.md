@@ -1,6 +1,7 @@
 <p align="center">
   <a href="" rel="noopner">
     <img height=200px src="http://cdn.differencebetween.net/wp-content/uploads/2018/05/Difference-Between-Link-and-Hyperlink.png" alt="Hire Chain Logo"></a>
+
 <h1 align="center">HireChain</h1>
 <h4>An open platform for job openings and acceptance in various tech and non-tech fields. (Freelancing)</h4>
 
@@ -58,8 +59,4 @@
       $ npm start
 ```
 
-------------------------------------------
-### Author
-Priyam Shah - [priyamshah112](https://github.com/priyamshah112)
 
-See also the list of [contributors](https://github.com/priyamshah112/HireChain/pulse) who participated in this project.

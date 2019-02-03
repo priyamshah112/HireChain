@@ -4,6 +4,7 @@ const bparser=require('body-parser');
 var User=require('./models').User;
 var Auction = require('./models').Auction;
 var IPFS = require('ipfs-http-client');
+
 // var Selection = require('./models').Selection;
 // db connect
 
@@ -40,11 +41,11 @@ app.post("/api/v1/add",(req,res)=>{
         publicKey:req.body.publicKey
     
     });
-    // user.save((err)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
+    user.save((err)=>{
+        if(err){
+            console.log(err);
+        }
+    });
 
 
     res.json({reply:"success"});
@@ -60,10 +61,17 @@ app.get("/api/v1/user/:id",(req,res)=>{
 });
 
 app.post("/api/v1/project",(req,res)=>{
+    // console.log(req.params.id2)
+    ;
     var projectname=req.body.pname;
+    var owner=req.body.own;
+    // console.log(projectname);
+    // console.log(req.params.id);
     var auction=new Auction({
-            
-            project_name:req.body.pname,
+            owner:owner,
+            finaladdr: "",
+            finalbid: "",
+            project_name:projectname,
             auction:[]
             
       });
@@ -71,30 +79,42 @@ app.post("/api/v1/project",(req,res)=>{
         if(err){
             console.log(err);
         }
-    })   
+    })
+    // res.json({result:"success"});   
 });
 
-app.get("/api/v1/auctions/:id",(req,res)=>{
-    User.findOne({pname:req.params.id}).then((data)=>{
+app.get("/api/v1/auction/:id",(req,res)=>{
+    Auction.findOne({project_name:req.params.id}).then((data)=>{
         res.json(data);
     });
+
     
 });
+app.post("/api/v1/accept",(req,res)=>{
+    var addr=req.body.publickey;
+    var bid=req.body.bid;
+    var projectname=req.body.name;
+    console.log(req.body)
+    Auction.findOneAndUpdate({project_name:projectname},{$set:{finaladdr:addr,finalbid:bid}}).then((data)=>{
+        console.log(data);
+    });
+    res.json({status:"done"});
+    
 
-app.post("/api/v1/auction",(req,res)=>{
+});
+
+app.post("/api/v1/auction/",(req,res)=>{
     console.log(req.body);
+
+
+
     var project_name=req.body.pname;
     var user_addr=req.body.useraddr;
+    console.log(user_addr);
     var bid=req.body.bid;
-    Auction.findByIdAndUpdate({project_name:pname},{$push:{auction:{user_addr:user_addr,user_bid:bid}}}).then((data)=>{
+    Auction.findOneAndUpdate({project_name:project_name},{$push:{auction:{user_address:user_addr,user_bid:bid,status:'not-done'}}}).then((data)=>{
             console.log(data);
     });
-    // user.save((err)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }
-    // });
-
 
     res.json({reply:"success"});
 

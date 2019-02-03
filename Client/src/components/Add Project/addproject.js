@@ -51,6 +51,18 @@ class addproject extends Component {
 
       })
       );
+     var response =await fetch("/api/v1/project",{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+          own:accounts[0],
+          pname:pname
+       }),
+      });
+      console.log(response);
+      
 
 
       // console.log(receipt);
