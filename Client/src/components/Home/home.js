@@ -184,5 +184,5 @@ class home extends Component {
     );
   }
 }
-
+ 
 export default home;
