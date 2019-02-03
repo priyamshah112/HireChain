@@ -7,10 +7,9 @@ body{
     width:100%;
     left:0;
     margin:0;
-    /* background:url("../img/background.jpg");
+    background:url("../img/background1.jpg");
     background-repeat: no-repeat;
-    background-size:cover;  */
-    
+    background-size:cover; 
 }
 
 .bodyclass{
@@ -88,10 +87,7 @@ body{
       color:black;
   }
 
- .cardDesc{
-
-     padding-top: 10px;
- }
+ 
   p{
       color:black;
   }

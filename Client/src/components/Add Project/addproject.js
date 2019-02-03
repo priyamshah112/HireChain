@@ -71,16 +71,13 @@ class addproject extends Component {
             <div class="headerclass">
               <Header />
               <Grid style={{width:"100%"}} >
-                        <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
-                            <Col xs={4} xsOffset={6}>
-                            <br/>
-                            <p className="pagename">Add Project</p>
-                            </Col> 
-                            <Col xs={2} style={{background:"#e9e9e9", height:"60px", left:"0"}}>
-                             <br/><p className="username" style={{color:"rgba(0, 0, 0)",fontWeight:"600"}}><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
-                            </Col>
-                        </Row>
-                    </Grid>
+                    <Row style={{ width:"100%"}}>
+                        <Col xs={4} xsOffset={6}>
+                        <br/>
+                        <p className="pagename">Add Project</p>
+                        </Col> 
+                    </Row>
+                </Grid>
             </div>
   
               <div className="bodyclass">
@@ -91,23 +88,23 @@ class addproject extends Component {
                       <form onSubmit={this.addProject}>
                       <Form horizontal>
                         <FormGroup controlId="formHorizontalEmail">
-                          <Col componentClass={ControlLabel} sm={2}>
+                          <Col componentClass={ControlLabel} sm={2} xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                                 Project Name
                           </Col>
-                          <Col sm={10}>
+                          <Col sm={6}>
                             <FormControl type="text" name="pname" placeholder="Project Name" />
                           </Col>
                         </FormGroup>
                         <FormGroup controlId="formHorizontalEmail">
-                          <Col componentClass={ControlLabel} sm={2}>
+                          <Col componentClass={ControlLabel} sm={2} xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                             Project Description
                           </Col>
-                          <Col sm={10}>
+                          <Col sm={6}>
                             <FormControl type="text" name="pdescription" placeholder="Project Description" />
                           </Col>
                         </FormGroup>
                         <FormGroup controlId="formHorizontalEmail">
-                          <Col componentClass={ControlLabel} sm={2}>
+                          <Col componentClass={ControlLabel} sm={2} xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                             Project Cost
                           </Col>
                           <Col sm={2}>
@@ -115,8 +112,8 @@ class addproject extends Component {
                           </Col>
                         </FormGroup>
                         <FormGroup>
-                        <Col xs={1} xsOffset={2}>
-                          <Button type="submit" name="submit" className="btn btn-info">Sign In</Button>
+                        <Col xs={1} xsOffset={3}>
+                          <Button type="submit" name="submit" className="btn btn-info sans-serif text-white">Add</Button>
                         </Col>
                       </FormGroup>
                       </Form>

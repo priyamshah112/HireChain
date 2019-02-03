@@ -130,19 +130,16 @@ class updateprofile extends Component {
             <div class="headerclass">
             <Header/>
             <Grid style={{width:"100%"}} >
-                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                    <Row style={{ width:"100%"}}>
                         <Col xs={4} xsOffset={6}>
                         <br/>
-                        <p className="username">Update Profile</p>
-                        </Col>
-                        <Col xs={2} style={{background:"rgb(47, 53, 58)", height:"50px", left:"0"}}>
-                        <br/>  <p className="username"><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
-                        </Col>
+                        <p className="pagename">Update Profile</p>
+                        </Col> 
                     </Row>
                 </Grid>
             </div>
 
-            <div className="bodyclass">
+            <div className="bodyclass" style={{marginTop:"50px"}}>
             
               <Grid>
                 <Row>
@@ -151,50 +148,50 @@ class updateprofile extends Component {
                     <form onSubmit={this.addUser}>
                     <Form horizontal>
                       <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={2}  xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                               Name
                         </Col>
-                        <Col sm={10}>
-                          <FormControl type="text" name="name" placeholder="Email" />
+                        <Col sm={6}>
+                          <FormControl type="text" name="name" placeholder="Name" />
                         </Col>
-                      </FormGroup>
+                      </FormGroup><br/>
                       <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={2}  xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                           Email
                         </Col>
-                        <Col sm={10}>
+                        <Col sm={6}>
                           <FormControl type="email" name="email" placeholder="Email" />
                         </Col>
-                      </FormGroup>
+                      </FormGroup><br/>
                       <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={2}  xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                           Number
                         </Col>
-                        <Col sm={10}>
-                          <FormControl type="text" name="number" placeholder="Email" />
+                        <Col sm={6}>
+                          <FormControl type="text" name="number" placeholder="Contact Number" />
                         </Col>
-                      </FormGroup>
+                      </FormGroup><br/>
 
                       <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={2}  xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                           Address
                         </Col>
-                        <Col sm={10}>
+                        <Col sm={6}>
                           <FormControl type="text" number="address" placeholder="Address" />
                         </Col>
-                      </FormGroup>
+                      </FormGroup><br/>
                       <FormGroup controlId="formHorizontalEmail">
-                        <Col componentClass={ControlLabel} sm={2}>
+                        <Col componentClass={ControlLabel} sm={2}  xsOffset={1} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                           Resume
                         </Col>
-                        <Col sm={10}>
+                        <Col sm={6} style={{color:"#e9e9e9",fontFamily:"sans-serif",fontWeight:"0"}}>
                           <FormControl type="file" name="file" onChange={this.captureFile}  />
                         </Col>
-                      </FormGroup>
+                      </FormGroup><br/>
 
                       <FormGroup>
-                        <Col xs={1} xsOffset={2}>
-                          <Button type="submit" name="submit" className="btn btn-info">Sign In</Button>
+                        <Col xs={1} xsOffset={3}>
+                          <Button type="submit" name="submit" className="btn btn-warning">Submit</Button>
                         </Col>
                       </FormGroup>
                     </Form>

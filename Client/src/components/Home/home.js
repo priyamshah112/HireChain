@@ -91,7 +91,8 @@ class home extends Component {
       for(var key in element){
         // console.log();
         var projectname=element[key].pname;
-        
+        var projectcost=element[key].cost/1000000000000000000;
+        var projectdesc=element[key].pdescription;
         projects.push(
                     <Grid>
                     <Row style={{left:"-10px"}}> 
@@ -102,6 +103,7 @@ class home extends Component {
                           <Row className="cardHeader">
                             <Col class="Headershift" xs={10}>
                               <h5>&nbsp;&nbsp; {projectname}</h5>
+                            <p style={{paddingLeft:"17px"}}><span style={{fontWeight:"bold"}}>Description: </span>{projectdesc}</p>
                             </Col>
                            < Col xs={2} >
                              <Form onSubmit={this.Bid}>
@@ -120,8 +122,7 @@ class home extends Component {
                           </Row>
                           <Row className="cardDesc">
                               <Col xs={10}>
-                                <p>Cost 
-                                </p>
+                                <p  style={{paddingLeft:"17px"}}><span style={{fontWeight:"bold"}}>Cost: </span> {projectcost} ETH</p>
                               </Col>
                             
                           </Row>
@@ -137,45 +138,19 @@ class home extends Component {
       }
     });
     return (
-      // <div><Header/><ProgressBar active now={45} /><ProgressBar>
-      // <ProgressBar striped bsStyle="success" now={35} key={1} />
-      // <ProgressBar bsStyle="warning" now={20} key={2} />
-      // <ProgressBar active bsStyle="danger" now={10} key={3} />
-      // </ProgressBar>;
-      // <div style={{ minheight: "100%"}}>
-      //   <Grid className="container-fluid" style={{ width: "100%" }}>
-      //     <Row>
-      //       <Col xs={4} className="button">
-      //         <Button className="btn btn-success">Primary</Button>{" "}
-      //       </Col>
-      //       <Col xs={4} className="button">
-      //         <Button className="btn btn-warning-outline">Primary</Button>{" "}
-      //       </Col>
-      //       <Col xs={4} className="button">
-      //       <Button className="btn btn-danger" outline={true}>
-      //         Primary
-      //       </Button>{" "}
-      //       </Col>
-      //     </Row>
-      //   </Grid>
-      // </div>
-      // </div>
-      <div style={{ minHeight: "100%", width:"103%"}}>
+      <div style={{ minHeight: "100%", width:"100%", paddingTop:"-50px"}}>
         <div class="headerclass" >
           <Header />
           <Grid style={{width:"100%"}} >
-                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                    <Row style={{ width:"100%"}}>
                         <Col xs={4} xsOffset={6}>
                         <br/>
                         <p className="pagename">Dashboard</p>
                         </Col> 
-                        <Col xs={2} style={{background:"#e9e9e9", height:"60px", left:"0"}}>
-                         <br/><p className="username" style={{color:"rgba(0, 0, 0)",fontWeight:"600"}}><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
-                        </Col>
                     </Row>
                 </Grid>
         </div>
-        <div className="bodyclass">
+        <div className="bodyclass" style={{marginTop:"30px"}}>
         
           {projects}
 

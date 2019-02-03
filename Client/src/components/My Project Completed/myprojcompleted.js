@@ -32,18 +32,15 @@ class myprojcompleted extends Component {
             <div class="headerclass">
             <Header/>
             <Grid style={{width:"100%"}} >
-                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                    <Row style={{ width:"100%"}}>
                         <Col xs={4} xsOffset={6}>
                         <br/>
-                        <p className="username">Your Projects</p>
-                        </Col>
-                        <Col xs={2} style={{background:"rgb(47, 53, 58)", height:"50px", left:"0"}}>
-                        <br/>  <p className="username"><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
-                        </Col>
+                        <p className="pagename">Projects</p>
+                        </Col> 
                     </Row>
                 </Grid>
             </div>
-        <div className="bodyclass">
+        <div className="bodyclass" style={{marginTop:"30px"}}>
           <Grid>
             <Row>
               <Col lg={{ span: 4, offset: 6 }}>
