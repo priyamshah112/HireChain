@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import {Grid, Row, Col, } from 'react-bootstrap';
+import {Form, FormGroup,Col,FormControl,Button,ControlLabel,Grid, Row,Glyphicon} from 'react-bootstrap';
 import Header from '../Header/header';
 import "./updateprofile.css";
 import {Form, FormGroup,Col,FormControl,Button,Checkbox,ControlLabel,Grid, Row,} from 'react-bootstrap';
@@ -130,9 +130,20 @@ class updateprofile extends Component {
             //   </Grid>
             // </div>
             // </div>
-            <div style={{minHeight:'100%'}}>
+            <div style={{minHeight:'100%', width:"103%" }}>
             <div class="headerclass">
             <Header/>
+            <Grid style={{width:"100%"}} >
+                    <Row style={{background:"rgb(47, 53, 58)", width:"100%"}}>
+                        <Col xs={4} xsOffset={6}>
+                        <br/>
+                        <p className="username">Update Profile</p>
+                        </Col>
+                        <Col xs={2} style={{background:"rgb(47, 53, 58)", height:"50px", left:"0"}}>
+                        <br/>  <p className="username"><Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;&nbsp;Hello User</p>
+                        </Col>
+                    </Row>
+                </Grid>
             </div>
 
             <div className="bodyclass">
