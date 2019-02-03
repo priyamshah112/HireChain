@@ -74,8 +74,8 @@ app.post("/api/v1/project",(req,res)=>{
     })   
 });
 
-app.get("/api/v1/auctions/:id",(req,res)=>{
-    User.findOne({pname:req.params.id}).then((data)=>{
+app.get("/api/v1/auction/:id",(req,res)=>{
+    User.findOne({project_name:req.params.id}).then((data)=>{
         res.json(data);
     });
     
@@ -101,6 +101,12 @@ app.post("/api/v1/auction",(req,res)=>{
 
 
 });
+
+app.get("https://api.github.com/repos/:owner/:repo/readme",(req,res)=>{
+    console.log("response",res);
+    res.json(data);
+});
+
 
 app.listen(5000,()=>{
     console.log("listening to port 5000");
