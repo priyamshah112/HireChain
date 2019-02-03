@@ -1,12 +1,12 @@
 <p align="center">
   <a href="" rel="noopner">
     <img height=200px src="http://cdn.differencebetween.net/wp-content/uploads/2018/05/Difference-Between-Link-and-Hyperlink.png" alt="Hire Chain Logo"></a>
-
+<p align="center">~~~~~~~~~~~~~</p>
 <h1 align="center">HireChain</h1>
-
+<p align="center">~~~~~~~~~~~~~</p>
 <h4>An open platform for job openings and acceptance in various tech and non-tech fields. (Freelancing)</h4>
 
-## Objectives
+### Objectives
 
 ~`Fairness`: Direct employee to emplyer contact, no middleman.<br/>
 ~`Security`: Employer has to pay for the work done. Employee is also bind by the contract to complete work<br/>
@@ -15,12 +15,16 @@
 ~`Transparency`
 
 
-## Features
+### Features
 
 -`Post project`:  Add your projects to the network so that other users can apply.<br/>
 -`Apply for project`: You can apply for the available projects.<br/>
 -`Bidding`: You can bid for the project and accordingly the project will be alloted.<br/>
 -`Contract`: While acceptance of the project contract will be made between the employee and the employer.<br/>
+
+### Demo
+
+
 
 ### Installation
   * Step I: Clone the Repository
