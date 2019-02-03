@@ -35,8 +35,32 @@ class myprojcompleted extends Component {
         console.log(numberProjects);
         if(numberProjects!=0 && useraddr == account){
           for(var i =0;i<numberProjects;i++){
+
             
             const projectres=await(contract.methods.ProjectMap(useraddr,i)).call();
+            var response =await fetch(`/api/v1/auction/${projectres.pname}`);
+            // console.log(response.auction.user_bid);
+            var data=await response.json();
+            console.log(data.auction[0]);
+            var bid=0;
+          
+            if(typeof data.auction[0]!== 'undefined'){
+              // console.log(data.auction[0]['user_bid']);
+              const employee=await userContract.methods.Username(data.auction[0]['user_address']).call();
+              console.log(employee);
+              // projectres['ipfs']=employee['ipfshash'];
+              
+              bid=data.auction[0];
+              data.auction[0]['ipfshash']=employee['ipfshash'];
+              data.auction[0]['name']=employee['name'];
+            }else{
+              // data.auction[0]['ipfshash']='';
+              // data.auction[0]['name']='';
+              
+            }
+            console.log(data.auction[0]);
+            // console.log(projectres.pname);
+            projectres['bids']=data.auction[0];
             
             var dic={};
             dic[useraddr]=projectres;
@@ -50,35 +74,43 @@ class myprojcompleted extends Component {
         
       }
       this.setState({projects:projects});
-      console.log(this.state.projects);
+      // console.log(this.state.projects);
       // for(var i=0;i<numberProjects)
 
 
     }
   }
 
-  Bid=async(event)=>{
+  Accept=async(event)=>{
     event.preventDefault();
     const data= new FormData(event.target);
-    const bid=data.get("bid");
-    const pname=data.get("pname");
+    const bid=parseInt(data.get("bid"));
+
+    const publicKey=data.get("publicKey");
+    console.log(publicKey);
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
-    console.log("bid:",bid,"pname",pname);
-    const response= await fetch("/api/v1/auction",{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ 
-        pname:pname,
-        useraddr:account,
-        bid:bid
-       }),
-    });
+    var receipt=await(contract.methods.acceptMap(publicKey,bid).send({
+      "from":account,
+    }));
+    console.log(receipt);
+    // const accounts=await web3.eth.getAccounts();
+    // const account=accounts[0];
+    // console.log("bid:",bid,"pname",pname);
+    // const response= await fetch("/api/v1/auction",{
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify({ 
+    //     pname:pname,
+    //     useraddr:account,
+    //     bid:bid
+    //    }),
+    // });
     
 
-    console.log(response);
+    // console.log(response);
   }
 
   render() {
@@ -87,10 +119,33 @@ class myprojcompleted extends Component {
     // console.log(val);
     var projects=[]
     val.forEach(element => {
-      console.log(element);
+      // console.log(element);
       for(var key in element){
         // console.log();
         var projectname=element[key].pname;
+        var bids =element[key].bids;
+        var flag=0;
+        var bid;
+        var hash;
+        var name;
+        var publicKey;
+        
+        if(typeof bids!=='undefined'){
+          bid=bids['user_bid'];
+          publicKey=bids['user_address'];
+          name=bids['name'];
+          hash=bids['ipfshash'];
+          console.log("bid",bid);
+          console.log("hash",hash);
+        }else{
+          flag=1;
+          bid=0;
+          hash='';
+          name='';
+          publicKey='';
+          // bid.user_bid="0";
+        }
+        
         
         projects.push(
                     <Grid>
@@ -103,17 +158,28 @@ class myprojcompleted extends Component {
                             <Col class="Headershift" xs={10}>
                               <h5>&nbsp;&nbsp; {projectname}</h5>
                             </Col>
+                            <Col class="Headershift" xs={10}>
+                              <h5>&nbsp;&nbsp; Bid:{bid}</h5>
+                            </Col>
+                            <Col class="Headershift" xs={10}>
+                              <h5>&nbsp;&nbsp; name:{name}</h5>
+                            </Col>
+                            <Col class="Headershift" xs={10}>
+
+                              <a href={`https://ipfs.io/ipfs/${hash}`}>&nbsp;&nbsp; link</a>
+                            </Col>                      
                            < Col xs={2} >
-                             <Form onSubmit={this.Bid}>
+                             <Form onSubmit={this.Accept}>
                               <FormGroup controlId="formHorizontalText">
                                   <Col sm={10}>
-                                  <FormControl type="hidden" name="pname" id="pname" value={projectname}/>
-                                  <FormControl type="text" id="bid" name="bid" placeholder="Bid" />
+                                  <FormControl type="hidden" name="publicKey" id="pname" value={publicKey}/>
+                                  <FormControl type="hidden" name="bid" id="pname" value={bid}/>
+                                 
                                   
                                 </Col>
                             </FormGroup>
                             <Col xs={6}>
-                            <Button type="submit" className="btn btn-success"><span class="glyphicon glyphicon-ok">&nbsp;</span>Apply</Button>{" "}
+                            <Button type="submit" className="btn btn-success"><span class="glyphicon glyphicon-ok">&nbsp;</span>Accept</Button>{" "}
                             </Col>
                             </Form>   
                              </Col>
