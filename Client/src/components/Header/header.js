@@ -14,20 +14,21 @@ class header extends Component {
               <Navbar fluid className="sidebar">
                 <Navbar.Header>
                   <Navbar.Brand><br/>
-                    <a href="/"style={{color:"#e9e9e9"}}>Hire Chain</a>
-                  </Navbar.Brand>
+                    <a href="/"style={{color:"#e9e9e9", fontFamily:"sans-serif",fontSize:"24px"}}><Glyphicon glyph="link" />&nbsp;&nbsp;&nbsp;HireChain</a>
+                  </Navbar.Brand> <br/> <br/><br/><br/>
                   <Navbar.Toggle />
                 </Navbar.Header>
-                
+               
                 <Navbar.Collapse>
                   <Navbar.Text className="userMenu">
-                    <Navbar.Link href="#" >
+                  <Navbar.Link href="#"><hr/> 
+                    <a style={{color:"#e9e9e9"}}>&nbsp;<Glyphicon glyph="user" />&nbsp;&nbsp;&nbsp;<span>Username</span></a>
                     </Navbar.Link>
                     <Navbar.Link href="#">
-                    <Glyphicon glyph="logout" />
-                    </Navbar.Link>
+                    <a style={{color:"#e9e9e9"}}><Glyphicon glyph="log-out" />&nbsp;&nbsp;&nbsp;Logout</a>
+                    </Navbar.Link><hr/> 
                   </Navbar.Text>
-                  <Nav><br/>
+                  <Nav>
                     <div style={{marginLeft:"20px", width:"100%"}}>
                     <a href={'/'} ><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="dashboard" />&nbsp;&nbsp;&nbsp;Dashboard</span></a><br/><br/>
                     <a href={'addproject'}><span className="navitems" style={{textDecoration:"none !important", color:"#e9e9e9"}}><Glyphicon glyph="plus-sign" />&nbsp;&nbsp;&nbsp;Add Projects</span></a><br/><br/>

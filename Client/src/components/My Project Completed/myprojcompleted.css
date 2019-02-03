@@ -1,3 +1,7 @@
+html{
+    width:100%;
+}
+
 body{
     height:100%;
     width:100%;
@@ -28,11 +32,34 @@ body{
     margin-right: 10px;
   }
   
+  .pagename{
+    color:#e9e9e9;
+    cursor: pointer;
+    align-content: center;
+    font-size:24px; 
+    
+}
+
+.pagename:hover{
+    color:#fff;
+}
+
+.username{
+    font-size:10px;
+    color:rgba(0, 0, 0, 0.5); 
+    width:50%;
+    height: 1px;
+    align-content: right;
+    font-size:20px;
+}
+
+
   .card {
     color: #ffffff;
     width:100%;
     transition: 0.5s;
-    margin: 12.5px auto;]
+    margin: 12.5px auto;
+   
     width: 500px;
   }
   
