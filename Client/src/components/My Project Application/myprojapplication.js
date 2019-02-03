@@ -70,7 +70,8 @@ class myprojapplication extends Component {
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
     console.log("bid:",link);
-    return < Redirect to='/' />
+    return < Redirect to="/" />;
+    
   }
 
   render() {

@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import { Grid, Row, Col,Button, Glyphicon,FormGroup ,FormControl,ControlLabel,Form} from "react-bootstrap";
-=======
-import { Grid, Row, Col,Button,Glyphicon } from "react-bootstrap";
->>>>>>> 5d7750b384a4d3d8c3713583a060eb44df26b56e
 import Header from "../Header/header";
 import {abi,address} from "../../project_contract";
 import {abi2,address2} from "../../user_contarct";
