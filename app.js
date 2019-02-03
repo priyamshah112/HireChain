@@ -68,6 +68,8 @@ app.post("/api/v1/project",(req,res)=>{
     // console.log(req.params.id);
     var auction=new Auction({
             owner:owner,
+            finaladdr: "",
+            finalbid: "",
             project_name:projectname,
             auction:[]
             
@@ -87,15 +89,28 @@ app.get("/api/v1/auction/:id",(req,res)=>{
 
     
 });
+app.post("/api/v1/accept",(req,res)=>{
+    var addr=req.body.publickey;
+    var bid=req.body.bid;
+    var projectname=req.body.name;
+    console.log(req.body)
+    Auction.findOneAndUpdate({project_name:projectname},{$set:{finaladdr:addr,finalbid:bid}}).then((data)=>{
+        console.log(data);
+    });
+    res.json({status:"done"})
+
+});
 
 app.post("/api/v1/auction/",(req,res)=>{
     console.log(req.body);
+
+
 
     var project_name=req.body.pname;
     var user_addr=req.body.useraddr;
     console.log(user_addr);
     var bid=req.body.bid;
-    Auction.findOneAndUpdate({project_name:project_name},{$push:{auction:{user_address:user_addr,user_bid:bid}}}).then((data)=>{
+    Auction.findOneAndUpdate({project_name:project_name},{$push:{auction:{user_address:user_addr,user_bid:bid,status:'not-done'}}}).then((data)=>{
             console.log(data);
     });
 

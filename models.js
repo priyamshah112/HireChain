@@ -15,9 +15,12 @@ var userSchema=new mongoose.Schema({
 var auctionSchema=new mongoose.Schema({
         owner:{type:String},
         project_name:{type:String},
+        finaladdr:{type:String},
+        finalbid:{type:String},
         auction: [{
             user_address:{type:String},
             user_bid:{type:String},
+           
         }]
     
 }); 
