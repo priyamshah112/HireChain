@@ -33,7 +33,9 @@ class myprojcompleted extends Component {
           "from":useraddr
         });
         console.log(numberProjects);
-        if(numberProjects!=0 && useraddr == account){
+        
+        if(numberProjects!=0 && useraddr === account){
+          console.log(useraddr);
           for(var i =0;i<numberProjects;i++){
 
             
@@ -95,10 +97,10 @@ class myprojcompleted extends Component {
     console.log(bid);
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
-    // var receipt=await(contract.methods.acceptMap(publicKey,bid).send({
-    //   "from":account,
-    // }));
-    // console.log(receipt);
+    var receipt=await(contract.methods.acceptMap(publicKey,bid).send({
+      "from":account,
+    }));
+    console.log(receipt);
     var response=await fetch("/api/v1/accept",{
       method: 'POST',
       headers: {
