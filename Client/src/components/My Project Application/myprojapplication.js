@@ -22,7 +22,7 @@ class myprojapplication extends Component {
       const accounts=await web3.eth.getAccounts();
       const account=accounts[0];
       const userNum=await userContract.methods.countUsers().call();
-
+  
       console.log(userNum)
       var projects=[]
       for(var j=0;j<userNum;j++){
@@ -33,25 +33,23 @@ class myprojapplication extends Component {
           "from":useraddr
         });
         console.log(numberProjects);
-
         if(numberProjects!=0){
           for(var i =0;i<numberProjects;i++){
+
             
             const projectres=await(contract.methods.ProjectMap(useraddr,i)).call();
-            var dic={};
-            dic[useraddr]=projectres;
-            projects.push(dic);
-            var nam = projectres[0];
-            console.log(nam,"dic");
-            // var strin = "/api/v1/auction/"+nam;
-            // console.log(strin);
-            // const respon= await fetch(strin);
-            // var data = await respon.json();
-            // console.log(data,"my response");
-            var response =await fetch(`/api/v1/auction/HireChain`);
+            var response =await fetch(`/api/v1/auction/${projectres.pname}`);
             // console.log(response.auction.user_bid);
             var data=await response.json();
-            console.log(data.auction[0]);
+            // var t = data.auction[0]['finalbid'];
+            console.log(data.auction[0],"usr");
+              if( data['finaladdr'] == account){
+                  var fbid = data['finalbid'];
+                  projectres['fbid'] = fbid;
+                  var dic={};
+                  dic[useraddr]=projectres;
+                  projects.push(dic);
+              }
           }
         }
 
@@ -59,13 +57,12 @@ class myprojapplication extends Component {
         
       }
       this.setState({projects:projects});
-      console.log(this.state.projects);
+      // console.log(this.state.projects);
       // for(var i=0;i<numberProjects)
 
 
     }
   }
-
   Submit=async(event)=>{
     event.preventDefault();
     const data= new FormData(event.target);
@@ -73,8 +70,7 @@ class myprojapplication extends Component {
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
     console.log("bid:",link);
-    const response= await fetch(link);
-    console.log(response);
+   
   }
 
   render() {
@@ -87,51 +83,55 @@ class myprojapplication extends Component {
       for(var key in element){
         // console.log();
         var projectname=element[key].pname;
-        
-        projects.push(
-                    <Grid>
-                    <Row style={{left:"-10px"}}> 
-                      <Col xs={12}>
-                        <div className="cards">
-                          <div className="card">
-                          <Grid>
-                          <Row className="cardHeader">
-                            <Col class="Headershift" xs={10}>
-                              <h5>&nbsp;&nbsp; {projectname}</h5>
-                            </Col>
-                           < Col xs={2} >
-                             <Form onSubmit={this.Bid}>
-                              <FormGroup controlId="formHorizontalText">
-                                  <Col sm={10}>
-                                  <FormControl type="hidden" name="pname" id="pname" value={projectname}/>
-                                  <FormControl type="text" id="bid" name="bid" placeholder="Bid" />
-                                  
-                                </Col>
-                            </FormGroup>
-                            <Col xs={6}>
-                            <Button type="submit" className="btn btn-success"><span class="glyphicon glyphicon-ok">&nbsp;</span>Apply</Button>{" "}
-                            </Col>
-                            </Form>   
-                             </Col>
-                          </Row>
-                          <Row className="cardDesc">
-                              <Col xs={10}>
-                                <p>Cost 
-                                </p>
+        var fb = element[key].fbid;
+                    projects.push(
+                      <Grid>
+                      <Row style={{left:"-10px"}}> 
+                        <Col xs={12}>
+                          <div className="cards">
+                            <div className="card">
+                            <Grid>
+                            <Row className="cardHeader">
+                              <Col class="Headershift" xs={10}>
+                                <h5>&nbsp;&nbsp; {projectname} &nbsp; {fb}</h5>
                               </Col>
-                            
-                          </Row>
-                          </Grid>
-                            <div className="front">
+                            < Col xs={2} >
+
+                              <Form onSubmit={this.SubLink}>
+                                <FormGroup controlId="formHorizontalText">
+                                    <Col sm={10}>
+                                    <FormControl type="text" id="link" name="link" placeholder="Github Link" />
+                                    
+                                  </Col>
+                              </FormGroup>
+                              <Col xs={6}>
+                              <Button type="submit" className="btn btn-success"><span class="glyphicon glyphicon-ok">&nbsp;</span>Submit</Button>{" "}
+                              </Col>
+                              </Form>   
+                              </Col>
+                            </Row>
+                            <Row className="cardDesc">
+                                <Col xs={10}>
+                                  <p>Cost 
+                                  </p>
+                                </Col>
+                              
+                            </Row>
+                            </Grid>
+                              <div className="front">
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Grid>
-        )
-      }
-    });
+                        </Col>
+                      </Row>
+                    </Grid>
+          
+  
+                    )
+        }
+
+        });
+      
     return (
       // <div><Header/><ProgressBar active now={45} /><ProgressBar>
       // <ProgressBar striped bsStyle="success" now={35} key={1} />
