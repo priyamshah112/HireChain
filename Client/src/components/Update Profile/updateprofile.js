@@ -79,21 +79,24 @@ class updateprofile extends Component {
     // }else{
     //   console.log(response);
     // }
-    const user=await contract.methods.countUsers().call();
-    console.log(user);
+    // const user=await contract.methods.countUsers().call();
+    // console.log(user);
 
-    // contract.methods.AddUser(name,ipfsHash).send({
-    //   "from":account
-    // }).then((receipt)=>{ 
-    //   console.log(receipt);
-    // });
+    contract.methods.AddUser(name,ipfsHash).send({
+      "from":account
+    }).then((receipt)=>{ 
+      console.log(receipt);
+    });
   }
   retrieveuser=async (event)=>{
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
     const response=await fetch(`/api/v1/user/${account}`);
     var data=await (response.json());
-    console.log(data.publicKey)
+    console.log(data.publicKey);
+
+    const user=await contract.methods.countUsers().call();
+    console.log(user);
 
 
     var count=await contract.methods.Users(0).call();
