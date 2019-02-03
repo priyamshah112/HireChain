@@ -4,7 +4,7 @@
 <h1 align="center">HireChain</h1>
 <h4>An open platform for job openings and acceptance in various tech and non-tech fields. (Freelancing)</h4>
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+------------------------------------------
 ### Objectives
 
 ~`Fairness`: Direct employee to emplyer contact, no middleman.<br/>
@@ -14,7 +14,7 @@
 ~`Transparency`
 
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+------------------------------------------
 ### Features
 
 -`Post project`:  Add your projects to the network so that other users can apply.<br/>
@@ -22,12 +22,12 @@
 -`Bidding`: You can bid for the project and accordingly the project will be alloted.<br/>
 -`Contract`: While acceptance of the project contract will be made between the employee and the employer.<br/>
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+------------------------------------------
 ### Demo
 
 
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+------------------------------------------
 ### Installation
   * Step I: Clone the Repository
 ```sh
@@ -57,7 +57,7 @@
       $ npm start
 ```
 
-<p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+------------------------------------------
 ### Author
 Priyam Shah - [priyamshah112](https://github.com/priyamshah112)
 
