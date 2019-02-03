@@ -361,6 +361,6 @@ const abi=[
 		"type": "function"
 	}
 ];
-const address="0xbafdd85ea1f56cfaa31b76036b9da4d95c538310";
+const address="0x2af9a3cf0c7de5be7772772198375ddb2615d8ce";
 
 module.exports={abi,address};
