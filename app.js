@@ -97,7 +97,8 @@ app.post("/api/v1/accept",(req,res)=>{
     Auction.findOneAndUpdate({project_name:projectname},{$set:{finaladdr:addr,finalbid:bid}}).then((data)=>{
         console.log(data);
     });
-    res.json({status:"done"})
+    res.json({status:"done"});
+    
 
 });
 
@@ -119,12 +120,6 @@ app.post("/api/v1/auction/",(req,res)=>{
 
 
 });
-
-app.get("https://api.github.com/repos/:owner/:repo/readme",(req,res)=>{
-    console.log("response",res);
-    res.json(data);
-});
-
 
 app.listen(5000,()=>{
     console.log("listening to port 5000");
