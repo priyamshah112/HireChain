@@ -7,7 +7,7 @@
 ------------------------------------------
 ### Objectives
 
-~`Fairness`: Direct employee to emplyer contact, no middleman.<br/>
+~`Fairness`: Direct employee to employer contact, no middleman.<br/>
 ~`Security`: Employer has to pay for the work done. Employee is also bind by the contract to complete work<br/>
 ~`Identity Protection`: No identity confirmation required.<br/>
 ~`Direct Payment`: Payment via ethereum wallet.<br/>
