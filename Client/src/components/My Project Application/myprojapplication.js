@@ -3,7 +3,7 @@ import { Grid, Row, Col,Button, Glyphicon,FormGroup ,FormControl,ControlLabel,Fo
 import Header from "../Header/header";
 import {abi,address} from "../../project_contract";
 import {abi2,address2} from "../../user_contarct";
-
+import { Redirect } from "react-router-dom";
 //import { Card, CardTitle, CardActions, CardText } from "react-mdl";
 import "./myprojapplication.css";
 import web3 from "../../web";
@@ -70,7 +70,7 @@ class myprojapplication extends Component {
     const accounts=await web3.eth.getAccounts();
     const account=accounts[0];
     console.log("bid:",link);
-   
+    return < Redirect to='/' />
   }
 
   render() {
