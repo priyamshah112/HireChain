@@ -11,6 +11,7 @@
 ~`Security`: Employer has to pay for the work done. Employee is also bind by the contract to complete work<br/>
 ~`Identity Protection`: No identity confirmation required.<br/>
 ~`Direct Payment`: Payment via ethereum wallet.<br/>
+~`Limited T&C`: Social media and personal data sharing is banned.<br/>
 ~`Transparency`
 
 
