@@ -6,6 +6,11 @@
 <h4>An open platform for job openings and acceptance in various tech and non-tech fields. (Freelancing)</h4>
 
 ------------------------------------------
+### Research Paper
+
+<a href="https://www.irjet.net/archives/V6/i9/IRJET-V6I9344.pdf" target="_blank">Decentralized Freelancing System - Trust and Transparency</a>
+  
+------------------------------------------
 ### Objectives
 
 ~`Fairness`: Direct employee to employer contact, no middleman.<br/>
