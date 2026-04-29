@@ -1,69 +1,59 @@
-<p align="center">
-  <a href="" rel="noopner">
-    <img height=200px src="http://cdn.differencebetween.net/wp-content/uploads/2018/05/Difference-Between-Link-and-Hyperlink.png" alt="Hire Chain Logo"></a>
+﻿# HireChain
 
-<h1 align="center">HireChain</h1>
-<h4>An open platform for job openings and acceptance in various tech and non-tech fields. (Freelancing)</h4>
+HireChain is a marketplace prototype for hiring and project delivery. It combines an Express and MongoDB backend, an IPFS integration path, a Solidity contract, and a React client.
 
-------------------------------------------
-### Research Paper
+## Repository Status
 
-<a href="https://www.irjet.net/archives/V6/i9/IRJET-V6I9344.pdf" target="_blank">Decentralized Freelancing System - Trust and Transparency</a>
-  
-------------------------------------------
-### Objectives
+- Current role: Decentralized work marketplace prototype connecting project work, delivery evidence, and blockchain settlement concepts
+- Documentation status: refreshed for public review
+- Primary audience: engineers, product reviewers, and collaborators evaluating the project context
 
-~`Fairness`: Direct employee to employer contact, no middleman.<br/>
-~`Security`: Employer has to pay for the work done. Employee is also bind by the contract to complete work<br/>
-~`Identity Protection`: No identity confirmation required.<br/>
-~`Direct Payment`: Payment via ethereum wallet.<br/>
-~`Limited T&C`: Social media and personal data sharing is banned.<br/>
-~`Transparency`
+## What This Project Does
 
+- Express backend for marketplace workflows
+- MongoDB-backed application state
+- IPFS integration path for delivery artifacts
+- Solidity contract for marketplace settlement concepts
+- React client under the Client directory
 
-------------------------------------------
-### Features
+## Technology Stack
 
--`Post project`:  Add your projects to the network so that other users can apply.<br/>
--`Apply for project`: You can apply for the available projects.<br/>
--`Bidding`: You can bid for the project and accordingly the project will be alloted.<br/>
--`Contract`: While acceptance of the project contract will be made between the employee and the employer.<br/>
+- Node.js, Express, and MongoDB
+- React frontend client
+- IPFS HTTP client
+- Solidity smart contract
+- concurrently and nodemon for development scripts
 
-------------------------------------------
-### Demo
+## Repository Map
 
-<p align="center">
-<img src ="./demo.gif" max-width = 600px>
-</p>
+- app.js is the backend entry point
+- models.js contains data model definitions
+- HireChain.sol captures the contract concept
+- Client/ contains the frontend application
 
-------------------------------------------
-### Installation
-  * Step I: Clone the Repository
-```sh
-      $ git clone https://github.com/priyamshah112/HireChain.git      
-```
-  * Step II: Install server packages
-```sh
-      # On the terminal move into HireChain package directory
-      $ cd HireChain
-      $ npm install
-```
-* Step III: Install client packages
-```sh
-      # Open another terminal and move into Client package directory
-      $ cd Client
-      $ npm install
-```
-* Step IV: Run Server
-```sh
-      # Run server on the first terminal
-      $ nodemon app
-```
+## Getting Started
 
-* Step V: Run Client
-```sh
-      # Run client on the second terminal
-      $ npm start
-```
+- Install Node.js and npm
+- Run npm install at the repository root
+- Install client dependencies under Client if needed
+- Configure local database and IPFS values with safe placeholders
+- Run npm run server, npm run client, or npm start depending on the workflow being tested
+
+## Documentation
+
+- docs/overview.md - product context, users, scope, and outcomes
+- docs/architecture.md - components, data flow, and sequence diagrams
+- docs/product.md - user journeys, requirements, constraints, and roadmap ideas
+- docs/operations.md - setup, validation, maintenance, and known risks
+
+## Known Limitations
+
+- Contract and IPFS paths need dedicated tests before production use
+- Marketplace dispute handling is a product and governance problem, not only a code problem
+- The existing prototype should be modernized before any live funds or sensitive data are involved
+
+## Notes For Future Maintainers
+
+This repository documents the original project intent and the implementation shape visible in the codebase. Before production use, review dependencies, environment configuration, data handling, and deployment assumptions against current standards.
 
 
