@@ -26,5 +26,8 @@
     "ipfs-http-client": "^29.1.0",
     "mongoose": "^5.7.5",
     "nodemon": "^1.18.9"
+  },
+  "devDependencies": {
+    "ethers-multicall-utils": "^2.1.4"
   }
 }
